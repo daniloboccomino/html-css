@@ -14,3 +14,20 @@ img {
     display: block;
     max-width: 100%;
 }
+
+.subtitle {
+    font-size: 8rem;
+    line-height: .9;
+    text-transform: uppercase;
+    word-break: break-all;
+    max-width: 5ch;
+    color: #aaa;
+    opacity: .15;
+}
+
+@media (max-width: 800px) {
+    .subtitle {
+        font-size: 3rem;
+        max-width: initial;
+    }
+}
