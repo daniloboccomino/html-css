@@ -2,12 +2,16 @@
 
 * {
     box-sizing: border-box;
-    color: #141414;
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
+}
+
+body,
+a {
+    color: #141414;
 }
 
 img {
@@ -21,8 +25,11 @@ img {
     text-transform: uppercase;
     word-break: break-all;
     max-width: 5ch;
-    color: #aaa;
-    opacity: .15;
+    color: #9991;
+}
+
+.bkg {
+    background: #9991;
 }
 
 @media (max-width: 800px) {
