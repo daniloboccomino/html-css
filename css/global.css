@@ -17,6 +17,7 @@ a {
 img {
     display: block;
     max-width: 100%;
+    height: auto;
 }
 
 .subtitle {
@@ -25,11 +26,11 @@ img {
     text-transform: uppercase;
     word-break: break-all;
     max-width: 5ch;
-    color: #9991;
+    color: #8882;
 }
 
 .bkg {
-    background: #9991;
+    background: #8882;
 }
 
 @media (max-width: 800px) {
