@@ -127,7 +127,7 @@ Levar em consideração a operação do site (mobile e desktop).
 ### Tamanhos  
 Unidades relativas como %, vw, fr são mais utilizadas.  
 
-### Media Queries:  
+### Media Queries  
 Código será ativado de acordo com o tamanho da tela. Alterar o layout, esconder/exibir itens e adicionar funcionalidades.  
 Existem outras condições, como por exemplo se uma propriedade é suportada ou não pelo browser, ou se o CSS está sendo aplicado para tela ou impressão. https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries  
 
@@ -140,3 +140,81 @@ Manipular o flexbox e o grid para adaptar o conteúdo.
 ### object-fit  
 Preenche o elemento pai com a imagem, sem distorcer a mesma. Similar ao `background-size: cover;`  
 - `object-position` posiciona o objeto, indicando como ele deve ser cortado: top, left, top, center. Similar ao `background-position`  
+
+&nbsp;  
+## CSS ESPECIFICIDADE  
+A ordem dos elementos declarados só importa se eles possuírem a mesma especificidade. Caso contrário o seletor mais específico irá prevalecer.  
+- **id**: Primeiro nível (1, 0, 0)  
+- **classes, atributos e pseudo classes**: Segundo nível (0, 1, 0)  
+- **elementos e pseudo elementos**: Terceiro nível (0, 0, 1)  
+```html
+<html>
+    <head>
+        <style>
+            .titulo { color: tomato; } /* (0, 1, 0) */
+            #produtos { color: lightgreen; } /* (1, 0, 0) */
+            #intro #produtos.titulo { color: violet; } /* (2, 1, 0) */
+            #intro #produtos { color: blueviolet; } /* (2, 0, 0) */
+            html body section h2.titulo { border-left: 8px solid lightgreen; } /* (0, 1, 4) */
+            body section h2.titulo { border-left: 8px solid lightsalmon; } /* (0, 1, 3) */
+            #servicos { border-left: 8px solid lightskyblue; } /* (1, 0, 0) */
+        </style>
+    </head>
+    <body>
+        <section id="intro">
+        <h2 id="produtos" class="titulo">Produtos</h2>
+        <h2 id="servicos" class="titulo">Serviços</h2>
+        </section>
+    </body>
+<html>
+```
+
+&nbsp;  
+## CSS PROPRIEDADES CUSTOMIZADAS  
+Também conhecidas como variáveis css (custom properties), permite definir valores no CSS que podem ser reutilizados no código.  
+A propriedade é herdada pelos elementos filhos. É comum definir as mesmas nos elementos `:root`, assim é possível acessar a propriedade em todos os elementos do site.  
+**Definição**: `--roxo: #caf`  
+**Utilização**: `var(--roxo)`  
+
+### prefers-color-scheme  
+A `@media (prefers-color-scheme)` irá executar o código css conforme a preferência de tema do usuário, com relação ao modo escuro (dark) ou claro (light).  
+```html
+<html>
+    <head>
+        <style>
+            :root {
+                --fundo: #fff;
+                --texto-1: #111;
+                --texto-2: #444;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --fundo: #222;
+                    --texto-1: #eee;
+                    --texto-2: #bbb;
+                }
+            }
+
+            body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            background: var(--fundo);
+            }
+
+            h1 {
+            color: var(--texto-1);
+            }
+
+            p {
+            color: var(--texto-2);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Nossos Produtos</h1>
+        <p>A Nimbus Stark é a melhor Bikcraft já criada pela nossa equipe. Ela vem
+        equipada com os melhores acessórios da marca.</p>
+    </body>
+<html>
+```
