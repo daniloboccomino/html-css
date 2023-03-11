@@ -17,3 +17,10 @@ perguntas.forEach(pergunta => pergunta.addEventListener('click', event => {
     resposta.classList.toggle('ativa')
     pergunta.setAttribute('aria-expanded', resposta.classList.contains('ativa'))
 }))
+
+let bikcraftGallery = document.querySelector('.bicicleta-imagens')
+let bikcraftImages = document.querySelectorAll('img')
+bikcraftImages.forEach(img => img.addEventListener('click', event => {
+    let media = matchMedia('((min-width: 460px) and (max-width: 800px)) or (min-width: 920px)')
+    if (media.matches) bikcraftGallery.prepend(img)
+}))
