@@ -10,3 +10,10 @@ params.forEach(param => {
     let element = document.getElementById(param)
     if (element) element.checked = true
 })
+
+let perguntas = document.querySelectorAll('.perguntas button')
+perguntas.forEach(pergunta => pergunta.addEventListener('click', event => {
+    let resposta = document.getElementById(pergunta.getAttribute('aria-controls'))
+    resposta.classList.toggle('ativa')
+    pergunta.setAttribute('aria-expanded', resposta.classList.contains('ativa'))
+}))
