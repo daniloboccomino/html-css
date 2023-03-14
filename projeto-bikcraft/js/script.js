@@ -24,3 +24,5 @@ bikcraftImages.forEach(img => img.addEventListener('click', event => {
     let media = matchMedia('((min-width: 460px) and (max-width: 800px)) or (min-width: 920px)')
     if (media.matches) bikcraftGallery.prepend(img)
 }))
+
+if (window.SimpleAnime) new SimpleAnime()
