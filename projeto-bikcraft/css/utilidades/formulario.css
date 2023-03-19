@@ -35,6 +35,29 @@
     box-shadow: 0 0 0 2px #fea;
 }
 
+.form .message {
+    border-radius: 4px;
+    grid-column: 1/-1;
+    margin-bottom: 32px;
+    padding: 24px 32px;
+}
+
+.form .message.success {
+    background: #e7f5ed;
+    color: #13813e
+}
+
+.form .message.error {
+    background: #ffebef;
+    color: #e00830;
+}
+
+@media (max-width: 800px) {
+    .form .message {
+        margin-bottom: 72px;
+    }
+}
+
 @media (max-width: 600px) {
     .form {
         grid-template-columns: 1fr;
@@ -42,5 +65,9 @@
 
     .form .col-2 {
         grid-column: 1;
+    }
+
+    .form .message {
+        padding: 16px bre24px;
     }
 }

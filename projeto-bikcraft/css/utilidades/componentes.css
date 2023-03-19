@@ -23,6 +23,14 @@
     background: linear-gradient(#ffb60d, #e59317);
 }
 
+.botao[disabled] {
+    opacity: .5;
+}
+
+.botao[disabled]:hover {
+    background: linear-gradient(#ffbf00, #f2a50c);
+}
+
 .botao.secundario {
     background: var(--cor-10);
     color: var(--cor-2);
